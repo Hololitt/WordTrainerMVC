@@ -1,1 +1,24 @@
-main
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Words</title>
+</head>
+<body>
+<h1>Words</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Word</th>
+        <th>Translation</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="languageCard : ${languageCards}">
+        <td th:text="${languageCard.word}"></td>
+        <td th:text="${languageCard.translation}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

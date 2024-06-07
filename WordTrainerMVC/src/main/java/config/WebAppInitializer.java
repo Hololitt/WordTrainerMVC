@@ -17,11 +17,13 @@ package config;
         }
 
         @Override
+        @SuppressWarnings("NullableProblems")
         protected String[] getServletMappings() {
             return new String[] {"/"};
         }
 
         @Override
+        @SuppressWarnings("NullableProblems")
         public void onStartup(ServletContext aServletContext) throws ServletException {
             super.onStartup(aServletContext);
             registerHiddenFieldFilter(aServletContext);

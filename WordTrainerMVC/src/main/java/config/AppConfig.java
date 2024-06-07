@@ -19,7 +19,7 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 @Configuration
-    @ComponentScan("java.controllers")
+    @ComponentScan("C:\\Users\\holol\\OneDrive\\Рабочий стол\\WordTrainerMVC\\src\\main\\java\\controllers")
     @EnableWebMvc
     public class AppConfig implements WebMvcConfigurer{
         private final ApplicationContext applicationContext;
@@ -32,7 +32,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(applicationContext);
-        templateResolver.setPrefix("/");
+        templateResolver.setPrefix("/webapp/WEB-INF/views");
         templateResolver.setSuffix(".html");
         return templateResolver;
     }
@@ -56,7 +56,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         try{
             Properties properties = new Properties();
-            FileInputStream fileInputStream = new FileInputStream("DatabaseInfo.properties");
+            FileInputStream fileInputStream = new FileInputStream("C:\\Users\\holol\\OneDrive\\Рабочий стол\\WordTrainerMVC\\src\\main\\resources\\DatabaseInfo.properties");
             properties.load(fileInputStream);
 
             dataSource.setDriverClassName(properties.getProperty("driverClassName"));

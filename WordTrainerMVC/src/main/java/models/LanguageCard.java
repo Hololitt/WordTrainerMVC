@@ -1,23 +1,39 @@
 package models;
 
-import jakarta.validation.constraints.Min;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-
+@Entity
+@Table(name = "learnedWordPairs")
 public class LanguageCard {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+    @Column(name = "word")
     @NotEmpty(message = "Write the word")
     private String word;
+    @Column(name = "translation")
     @NotEmpty(message = "Write the translation")
     private String translation;
 
-    @Min(value=1, message = "Lowest value is 1")
     private int countOfCorrectAnswers;
-
+    @Column(name = "mistakeCount")
+private int mistakesCount;
+@Column(name = "repeatCount")
+    private int repeatCount;
     public LanguageCard() {}
-
+public int getId(){
+        return id;
+}
     public String getWord() {
         return word;
     }
-
+    public int getMistakesCount(){
+        return mistakesCount;
+    }
+    public int getRepeatCount(){
+        return repeatCount;
+    }
     public String getTranslation() {
         return translation;
     }
@@ -25,6 +41,9 @@ public class LanguageCard {
         return countOfCorrectAnswers;
     }
 
+public void incrementMistakesCount(int mistakesCount){
+        this.mistakesCount += mistakesCount;
+}
     public void setWord(String word) {
         this.word = word;
     }
